@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, Pressable, StyleSheet } from 'react-native';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
@@ -65,6 +65,14 @@ export default function HomeScreen() {
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Voice Chat 프로토타입</ThemedText>
+        <Link href="/voice-chat" asChild>
+          <Pressable style={styles.voiceButton}>
+            <ThemedText style={styles.voiceButtonText}>음성 채팅 입장</ThemedText>
+          </Pressable>
+        </Link>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
         <ThemedText>
           {`When you're ready, run `}
@@ -94,5 +102,16 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: 'absolute',
+  },
+  voiceButton: {
+    backgroundColor: '#1D3D47',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  voiceButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
