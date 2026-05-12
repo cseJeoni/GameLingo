@@ -9,9 +9,16 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gamelingo.app",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "음성 채팅을 위해 마이크 권한이 필요합니다.",
+        "NSCameraUsageDescription": "프로필 사진 등록을 위해 카메라 권한이 필요합니다.",
+        "NSPhotoLibraryUsageDescription": "프로필 사진 선택을 위해 사진 보관함 권한이 필요합니다."
+      }
     },
     "android": {
+      "package": "com.gamelingo.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -19,7 +26,18 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.WAKE_LOCK"
+      ]
     },
     "web": {
       "output": "static",
@@ -38,7 +56,21 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24,
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35
+          },
+          "ios": {
+            "deploymentTarget": "15.1"
+          }
+        }
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
